@@ -16,3 +16,5 @@ test('Selecting all the drop down elements', async ({page})=>{
         }
     await page.waitForTimeout(5000)
 })
+
+// How do we verify the message that appears on the pop-up

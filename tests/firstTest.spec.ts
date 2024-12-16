@@ -1,6 +1,6 @@
 // import test and expect function from playwright/test module
 import {test, expect} from '@playwright/test'
-//test.describe.configure({timeout : 50000})
+test.describe.configure({timeout : 50000})
 test("First Test Case11", async function({browser}){
  
     // create a browser context
@@ -24,7 +24,7 @@ test("First Test Case11", async function({browser}){
 
 
 })
-test("First Test Case", async ({page})=>{
+test.only("First Test Case", async ({page})=>{
     await page.goto("https://practicetestautomation.com/practice-test-login/")
     await page.locator("input#username").fill("student", {timeout :100000})
     await page.locator("input#password").fill("Password123")

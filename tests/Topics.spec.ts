@@ -11,11 +11,11 @@
 // nth(index) - Identify the indexed matching element. Index start with 0.
 // selectOption() - which use to select the value from the drop down that have been developed using select tag
 // hover() - Mouse hove on an element
-
+// dblClick() - Double click on an element
 
 // pressSequentially() - which is use to enter character by character in the input field
 
 
-// dblClick() - Double click on an element
+
 // close() - which is use to close the browser
 // title() - Which return the title of the page. - page.title()

@@ -15,7 +15,7 @@ test.only('Handling Check box', async ({page})=>{
     await expect(checkbox.nth(1)).not.toBeChecked()
     await checkbox.nth(1).check()
 
-    await expect(page.locator("#result span").nth(1)).toHaveText("desktop")
+    await expect(page.locator("#result span").nth(1)).toHaveText("abcd")
 
 })
 
