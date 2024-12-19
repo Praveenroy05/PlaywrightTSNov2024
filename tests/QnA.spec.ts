@@ -17,4 +17,29 @@ test('Selecting all the drop down elements', async ({page})=>{
     await page.waitForTimeout(5000)
 })
 
-// How do we verify the message that appears on the pop-up
+// How to select multiple products from the application
+
+const productNames = ["IPHONE 13 PRO", "qwerty", "ZARA COAT 3"];
+
+test.only('E2E Automation - Add Multiple Products', async ({ page }) => {
+  await page.goto("https://rahulshettyacademy.com/client");
+  await page.getByPlaceholder('email@example.com').fill("test7lYM@gmail.com");
+  await page.getByPlaceholder('enter your passsword').fill("Test@123");
+  await page.locator("#login").click();
+  await expect(page.locator(".fa-sign-out")).toBeVisible();
+
+  const products = page.locator("div.card-body");
+  await products.locator("b").first().waitFor();
+
+  const productCount = await products.count();
+  for (let i = 0; i < productCount; i++) {
+    const productText = await products.locator("b").nth(i).textContent();
+    
+    // Check if the product name is in the Array
+    if (productNames.includes(productText?.trim())) {
+      await products.nth(i).getByRole('button', { name: " Add To Cart" }).click();
+    }
+  }
+  
+  await page.waitForTimeout(3000);
+});
