@@ -2,7 +2,7 @@
 // .css-11unzgr div
 // count()
 
-import {test, expect} from '@playwright/test'
+import {test, expect, Page} from '@playwright/test'
 
 test('Selecting all the drop down elements', async ({page})=>{
     await page.goto("https://demoqa.com/select-menu")
@@ -21,7 +21,7 @@ test('Selecting all the drop down elements', async ({page})=>{
 
 const productNames = ["IPHONE 13 PRO", "qwerty", "ZARA COAT 3"];
 
-test.only('E2E Automation - Add Multiple Products', async ({ page }) => {
+test.only('E2E Automation - Add Multiple Products', async ({ page }:{page:Page}) => {
   await page.goto("https://rahulshettyacademy.com/client");
   await page.getByPlaceholder('email@example.com').fill("test7lYM@gmail.com");
   await page.getByPlaceholder('enter your passsword').fill("Test@123");
@@ -33,7 +33,7 @@ test.only('E2E Automation - Add Multiple Products', async ({ page }) => {
 
   const productCount = await products.count();
   for (let i = 0; i < productCount; i++) {
-    const productText = await products.locator("b").nth(i).textContent();
+    const productText:string|null = await products.locator("b").nth(i).textContent();
     
     // Check if the product name is in the Array
     if (productNames.includes(productText?.trim())) {

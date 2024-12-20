@@ -1,6 +1,6 @@
-import {test, expect} from '@playwright/test'
+import {test, expect, Browser, Page} from '@playwright/test'
 
-test('Multiple window handling', async ({browser})=>{
+test('Multiple window handling', async ({browser}:{browser: Browser})=>{
 
     const context = await browser.newContext()
     const page = await context.newPage()
@@ -22,7 +22,7 @@ test('Multiple window handling', async ({browser})=>{
 
 })
 
-test.only('Multiple window handling using page fixture', async ({page})=>{
+test.only('Multiple window handling using page fixture', async ({page}:{page:Page})=>{
 
     await page.goto("https://demo.automationtesting.in/Windows.html")
 

@@ -1,6 +1,6 @@
-import {test, expect} from '@playwright/test'
+import {test, expect, Page} from '@playwright/test'
 
-test.only('Handling Check box', async ({page})=>{
+test.only('Handling Check box', async ({page}:{page:Page})=>{
  
     await page.goto("https://demoqa.com/checkbox")
     await page.getByTitle("Toggle").click()
