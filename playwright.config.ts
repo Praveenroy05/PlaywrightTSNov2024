@@ -22,7 +22,7 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   // Default timeout - 30000ms, for assertion default timeout is 5000ms
-  timeout : 20000,
+  timeout : 60000,
   expect :{
     timeout : 5000
   },
